@@ -1,0 +1,27 @@
+{
+  "name": "electron-ipc-promises",
+  "version": "0.0.2",
+  "description": "Electron IPC with Promises.",
+  "main": "dist/index.js",
+  "repository": "github:Agnoli-Engineering/electron-ipc-promises",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh"
+  },
+  "author": "Agnoli Engineering",
+  "license": "MIT",
+  "peerDependencies": {
+    "electron": "^8.2.3"
+  },
+  "dependencies": {
+    "is-electron-renderer": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
