@@ -45,3 +45,8 @@ Same thing goes the other way around too (from main to renderer).
 or ...
 
 `$ yarn add electron-ipc-promises`
+
+
+### Testing
+
+Run `$ npm run test`.

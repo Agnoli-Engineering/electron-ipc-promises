@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "repository": "github:Agnoli-Engineering/electron-ipc-promises",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./test.sh",
     "build": "./build.sh"
   },
   "author": "Agnoli Engineering",
@@ -21,6 +21,8 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "babel-loader": "^8.1.0",
+    "electron": "^8.2.3",
+    "electron-rebuild": "^1.10.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }
