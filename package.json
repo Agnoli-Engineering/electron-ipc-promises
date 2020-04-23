@@ -1,6 +1,6 @@
 {
   "name": "electron-ipc-promises",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Electron IPC with Promises.",
   "main": "dist/index.js",
   "repository": "github:Agnoli-Engineering/electron-ipc-promises",

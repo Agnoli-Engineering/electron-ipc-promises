@@ -1,4 +1,4 @@
-# electron-ipc-promises (0.0.2)
+# electron-ipc-promises (0.0.3)
 
 Electron's IPC with Promises:
 

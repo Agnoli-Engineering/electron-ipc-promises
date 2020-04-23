@@ -1,5 +1,6 @@
 #!/bin/sh -euf
 
+./build.sh
 ./node_modules/.bin/electron-rebuild
 ./node_modules/.bin/webpack --config ./webpack.config.js
 cp ./test/index.html ./dist/test/index.html

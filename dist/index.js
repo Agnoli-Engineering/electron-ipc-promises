@@ -32,9 +32,14 @@ var table = {};
 (0, _getInstance["default"])().on("message-received", function (_, ctx) {
   var msgId = ctx.msgId;
   var payload = ctx.payload;
-  var resolve = table[msgId];
-  delete table[msgId];
-  resolve(payload);
+
+  if (msgId in table) {
+    var resolve = table[msgId];
+    delete table[msgId];
+    resolve(payload);
+  } else {
+    console.warn("Cannot locate resolve function for msgId = " + msgId);
+  }
 });
 /**
  * Make send() return a Promise.
@@ -58,7 +63,15 @@ var patched_send = function patched_send(sendFn, channel, payload) {
  */
 
 
+var registered_channels = {};
+
 var patched_on = function patched_on(channel, fn) {
+  if (channel in registered_channels) {
+    throw new Error("Cannot register more than one handler per channel. " + "Channel = " + channel);
+    return;
+  }
+
+  registered_channels[channel] = 1;
   (0, _getInstance["default"])().on(channel, function (e, data) {
     var msgId = data.msgId;
 

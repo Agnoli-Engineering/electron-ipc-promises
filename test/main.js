@@ -4,7 +4,6 @@ import path from "path"
 import ipc from "../src/index.js"
 
 ipc.main.on("add-sync", num => {
-	console.log(num)
 	return num + 1
 })
 

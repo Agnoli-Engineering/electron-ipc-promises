@@ -20,10 +20,15 @@ let table = {}
 getInstance().on("message-received", (_, ctx) => {
 	const msgId   = ctx.msgId
 	const payload = ctx.payload
-	const resolve = table[msgId]
-	delete table[msgId]
 
-	resolve(payload)
+	if (msgId in table) {
+		const resolve = table[msgId]
+		delete table[msgId]
+
+		resolve(payload)
+	} else {
+		console.warn("Cannot locate resolve function for msgId = " + msgId)
+	}
 })
 
 /**
@@ -44,7 +49,20 @@ let patched_send = function(sendFn, channel, payload) {
  * Make .on() automatically send `message-received` to
  * sender after handler `fn` was run.
  */
+let registered_channels = {}
+
 let patched_on = function(channel, fn) {
+	if (channel in registered_channels) {
+		throw new Error(
+			"Cannot register more than one handler per channel. " +
+			"Channel = " + channel
+		)
+
+		return
+	}
+
+	registered_channels[channel] = 1
+
 	getInstance().on(channel, (e, data) => {
 		const msgId   = data.msgId
 

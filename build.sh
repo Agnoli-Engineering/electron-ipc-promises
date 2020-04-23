@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -euf
 
 rm -rf dist
 
